@@ -1,28 +1,33 @@
 package com.khoza.recipeApp.Recipe;
 
 
-import jdk.jfr.DataAmount;
-
 import javax.persistence.*;
-import javax.transaction.Transactional;
+import java.io.Serializable;
+
 @Entity
 @Table
+public class Ingredients implements Serializable {
 
-public class Ingredients {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
     private String name;
     private String quantity;
 
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "recipe_id")
     private Recipe recipe;
+
     public Ingredients(String name, String quantity) {
         this.name = name;
         this.quantity = quantity;
     }
 
     public Ingredients() {
+    }
+
+    public Ingredients(String name, String quantity, Recipe recipe) {
+        this.name = name;
+        this.quantity = quantity;
+        this.recipe = recipe;
     }
 
     public String getName() {
