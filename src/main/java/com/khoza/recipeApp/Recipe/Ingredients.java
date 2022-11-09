@@ -46,6 +46,10 @@ public class Ingredients implements Serializable {
         this.quantity = quantity;
     }
 
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
     @Override
     public String toString() {
         return "Ingredients{" +

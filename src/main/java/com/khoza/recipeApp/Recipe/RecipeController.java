@@ -22,7 +22,6 @@ public class RecipeController {
         return recipeService.getRecipe();
     }
 
-
     @PostMapping
     public String saveRecipe(@RequestBody Recipe recipe) {
         recipeService.save(recipe);
